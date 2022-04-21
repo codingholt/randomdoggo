@@ -10,20 +10,45 @@ const fetchDoggo = async  () =>{
   return fetch
 }
 
-// const fetchBreeds = async  () =>{
-//   const fetch = await axios.get('https://dog.ceo/api/breeds/list/all')
-//   console.log(fetch)
-//   return JSON.stringify(fetch.data.message)
-// }
+const fetchBreeds = async  () =>{
+  const fetch = await axios.get('https://dog.ceo/api/breeds/list/all')
+  return fetch.data.message
+}
 
-// 
+
+
+
 function App() {
   const [doggo, setDoggo] = useState('')
-
+  const [breeds, setBreeds] = useState([])
   useEffect(() => {
     fetchDoggo().then((response) => setDoggo(response.data.message))
   
 }, [])
+  useEffect(() => {
+  
+     fetchBreeds().then((response) => setBreeds(response))
+
+}, [])
+
+
+
+const breedArr = []
+
+const makeBreedsList = (breeds) =>{
+  for (const [key,] of Object.entries(breeds)) {
+    breedArr.push(key)
+
+  }
+  
+}
+
+
+  makeBreedsList(breeds)
+
+
+
+
   return (
     <div className="App">
       <h1>Random doggo</h1>
@@ -31,8 +56,15 @@ function App() {
       <div className='button-wrapper'>
        <button className='button' onClick={()=>fetchDoggo().then((response) => setDoggo(response.data.message))}>New doggo</button>
        </div>
+       <select>
+       
+       {breedArr.map((item,i) => <option key={i}>{item}</option>)}
+       
+     </select>
     </div>
   );
+
+
 }
 
 export default App;
