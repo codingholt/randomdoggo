@@ -31,8 +31,6 @@ html, body {
 img {
   max-width: 100%;
   max-height: 100%;
-
-
  }
 .doggo {
   display:block;
@@ -41,6 +39,51 @@ img {
   height: 800px;
   width: 800px;
  }
+
+ @media only screen and (max-width: 800px) {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+   }
+  .doggo {
+    display:block;
+    margin:auto;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+   }
+}
+
+@media only screen and (max-height: 950px) {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+   }
+  .doggo {
+    display:block;
+    margin:auto;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+   }
+}
+
+@media only screen and (max-height: 550px) {
+  img {
+    max-width: 100%;
+    max-height: 100%;
+   }
+  .doggo {
+    display:block;
+    margin:auto;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+   }
+}
+
+
+
 
 .button{
   display:inline-block;
