@@ -1,6 +1,23 @@
+html, body {
+  margin:0px;
+}
+
 .App {
   text-align: center;
+  height:100%;
+}
 
+.background{
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+  background-image: url("./img/doggobackground.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .vertical-center {
@@ -11,10 +28,19 @@
   transform: translateY(-50%);
 }
 
-img{
-  width:100%;
-  max-width:600px;
-}
+img {
+  max-width: 100%;
+  max-height: 100%;
+
+
+ }
+.doggo {
+  display:block;
+  margin:auto;
+  align-items: center;
+  height: 800px;
+  width: 800px;
+ }
 
 .button{
   display:inline-block;

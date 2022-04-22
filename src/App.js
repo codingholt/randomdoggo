@@ -24,7 +24,7 @@ const fetchBreeds = async  () =>{
 function App() {
   const [doggo, setDoggo] = useState('')
   const [breeds, setBreeds] = useState([])
-  // const [selectedBreed,setSelectedBreed]= useState('')
+  const [selectedBreed,setSelectedBreed]= useState('')
 
   useEffect(() => {
     fetchDoggo().then((response) => setDoggo(response.data.message))
@@ -56,17 +56,20 @@ const makeBreedsList = (breeds) =>{
 
   return (
     <div className="App">
+      <div className='background'>
       <h1>Random doggo</h1>
+      <div className='doggo'>
       <img src={doggo} alt="doggo"></img>
+      </div>
       <div className='button-wrapper'>
-       <button className='button' onClick={()=>fetchDoggo('husky').then((response) => setDoggo(response.data.message))}>New doggo</button>
+       <button className='button' onClick={()=>fetchDoggo(selectedBreed).then((response) => setDoggo(response.data.message))}>New doggo</button>
        </div>
-       {/* <select onChange={() => setSelectedBreed(e.target.options[e.target.selectedIndex])}> */}
-       <select>
+       <select  onChange={(e) => setSelectedBreed(e.target.value)}>
        <option> all </option>
-       {breedArr.map((item,i) => <option key={i}>{item}</option>)}
+       {breedArr.map((item,i) => <option key={i} value={item}>{item}</option>)}
        
      </select>
+     </div>
     </div>
   );
 
